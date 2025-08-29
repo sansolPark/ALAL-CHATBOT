@@ -290,6 +290,21 @@ body {
         width: 30px;
         height: 30px;
     }
+    
+    .ad-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .ad-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .book-thumbnail {
+        width: 60px;
+        height: 80px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -319,4 +334,95 @@ body {
         width: 45px;
         height: 45px;
     }
+}
+
+/* 광고 섹션 */
+.ad-section {
+    margin: 30px 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.ad-container {
+    background: linear-gradient(135deg, #ff8c42, #4CAF50);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+.ad-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    pointer-events: none;
+}
+
+.ad-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.ad-text {
+    flex: 1;
+    color: white;
+}
+
+.ad-text h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ad-text p {
+    margin: 0 0 15px 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.ad-link {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.ad-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ad-image {
+    flex-shrink: 0;
+}
+
+.book-thumbnail {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.book-thumbnail:hover {
+    transform: scale(1.05);
 }
