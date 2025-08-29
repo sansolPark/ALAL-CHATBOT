@@ -128,8 +128,8 @@ ${Object.entries(jejuDialectData).map(([std, jeju]) => `"${std}" → "${jeju}"`)
             const fallbackResponses = [
                 '미안, 지금은 대답하기 어렵수다. 나중에 다시 시도해줘서.',
                 '아, 그거 말이야... 지금은 좀 어렵수다.',
-                '죄송허우다. 나중에 다시 물어봐줍서.',
-                '그거는 모르쿠다. 다른 거 물어봐줍서.'
+                '죄송허우다. 나중에 다시 물어봐줘서.',
+                '그거는 모르쿠다. 다른 거 물어봐줘서.'
             ];
             return fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
         }
@@ -177,14 +177,20 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`서버가 포트 ${PORT}에서 실행 중입니다.`);
-    console.log(`http://localhost:${PORT}에서 확인하세요.`);
-    
-    if (GEMINI_API_KEY === 'your-gemini-api-key-here') {
-        console.log('⚠️  경고: Gemini API 키가 설정되지 않았습니다.');
-        console.log('환경변수 GEMINI_API_KEY를 설정하거나 .env 파일을 생성해주세요.');
-    } else {
-        console.log('✅ Gemini API가 설정되었습니다.');
-    }
-});
+// Vercel 환경에서는 app.listen을 호출하지 않음
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`서버가 포트 ${PORT}에서 실행 중입니다.`);
+        console.log(`http://localhost:${PORT}에서 확인하세요.`);
+        
+        if (GEMINI_API_KEY === 'your-gemini-api-key-here') {
+            console.log('⚠️  경고: Gemini API 키가 설정되지 않았습니다.');
+            console.log('환경변수 GEMINI_API_KEY를 설정하거나 .env 파일을 생성해주세요.');
+        } else {
+            console.log('✅ Gemini API가 설정되었습니다.');
+        }
+    });
+}
+
+// Vercel 함수로 export
+module.exports = app;
