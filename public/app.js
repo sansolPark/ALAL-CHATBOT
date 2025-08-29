@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (sender === 'bot') {
             // 봇 메시지인 경우 아이콘과 함께 표시
+            const messageWrapper = document.createElement('div');
+            messageWrapper.classList.add('bot-message-wrapper');
+            
             const iconContainer = document.createElement('div');
             iconContainer.classList.add('message-icon');
             
@@ -22,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
             textContainer.textContent = text;
             
             iconContainer.appendChild(icon);
-            messageElement.appendChild(iconContainer);
-            messageElement.appendChild(textContainer);
+            messageWrapper.appendChild(iconContainer);
+            messageWrapper.appendChild(textContainer);
+            messageElement.appendChild(messageWrapper);
         } else {
             // 사용자 메시지는 기존과 동일
             messageElement.textContent = text;
