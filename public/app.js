@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             iconContainer.classList.add('message-icon');
             
             const icon = document.createElement('img');
-            icon.src = 'images/chaticon.png';
+            icon.src = '/images/chaticon.png';
             icon.alt = '앨런 아이콘';
             icon.classList.add('bot-icon');
             
