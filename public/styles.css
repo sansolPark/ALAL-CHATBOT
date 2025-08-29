@@ -344,23 +344,17 @@ body {
 }
 
 .ad-container {
-    background: linear-gradient(135deg, #ff8c42, #4CAF50);
+    background: white;
     border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .ad-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    pointer-events: none;
+    display: none;
 }
 
 .ad-content {
@@ -373,26 +367,26 @@ body {
 
 .ad-text {
     flex: 1;
-    color: white;
+    color: #333;
 }
 
 .ad-text h3 {
     margin: 0 0 8px 0;
     font-size: 1.3rem;
     font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #333;
 }
 
 .ad-text p {
     margin: 0 0 15px 0;
     font-size: 0.95rem;
-    opacity: 0.9;
+    color: #666;
     line-height: 1.4;
 }
 
 .ad-link {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #ff8c42, #4CAF50);
     color: white;
     text-decoration: none;
     padding: 8px 16px;
@@ -400,12 +394,10 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none;
 }
 
 .ad-link:hover {
-    background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -416,10 +408,11 @@ body {
 
 .book-thumbnail {
     width: 80px;
-    height: 100px;
-    object-fit: cover;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
