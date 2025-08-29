@@ -35,6 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
+        
+        // 메시지 추가 후 부드러운 스크롤
+        setTimeout(() => {
+            chatBox.scrollTo({
+                top: chatBox.scrollHeight,
+                behavior: 'smooth'
+            });
+        }, 100);
     };
 
     const sendMessage = async () => {
@@ -43,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addMessage(messageText, 'user');
         userInput.value = '';
+
+        // 입력 필드에 포커스 유지
+        userInput.focus();
 
         try {
             const response = await fetch('/api/alan', {
@@ -58,11 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const data = await response.json();
-            addMessage(data.reply, 'bot');
+            
+            // 봇 응답을 약간의 지연 후 표시 (자연스러운 느낌)
+            setTimeout(() => {
+                addMessage(data.reply, 'bot');
+            }, 500);
 
         } catch (error) {
             console.error('Error:', error);
-            addMessage('미안, 지금은 대답하기 어렵수다. 나중에 다시 시도해줍서.', 'bot');
+            setTimeout(() => {
+                addMessage('미안, 지금은 대답하기 어렵수다. 나중에 다시 시도해줘서.', 'bot');
+            }, 500);
         }
     };
 
@@ -73,5 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    addMessage('혼저옵서! 나 소리우다. 무사 궁금한 거 있수과?', 'bot');
+    // 초기 환영 메시지
+    setTimeout(() => {
+        addMessage('혼저옵서! 나 소리우다. 무사 궁금한 거 있수과?', 'bot');
+    }, 300);
 });

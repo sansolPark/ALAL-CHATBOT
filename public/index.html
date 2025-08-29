@@ -3,17 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALAN-CHATBOT</title>
+    <title>ALAN - 제주도 방언 챗봇</title>
+    <meta name="description" content="제주도 방언을 배우고 대화할 수 있는 AI 챗봇">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div id="chat-container">
-        <div id="chat-box"></div>
-        <div id="input-container">
-            <input type="text" id="user-input" placeholder="표준어 또는 영어로 질문하세요...">
-            <button id="send-btn">전송</button>
-        </div>
+    <div class="background-mosaic"></div>
+    
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <img src="images/chaticon.png" alt="ALAN 로고" class="logo-icon">
+                <h1>ALAN</h1>
+            </div>
+            <p class="subtitle">제주도 방언 AI 어시스턴트</p>
+        </header>
+        
+        <main class="chat-section">
+            <div id="chat-container">
+                <div id="chat-box"></div>
+                <div id="input-container">
+                    <input type="text" id="user-input" placeholder="표준어 또는 영어로 질문하세요...">
+                    <button id="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>&copy; 2024 ALAN Chatbot. 제주도의 아름다운 방언을 경험해보세요.</p>
+        </footer>
     </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
