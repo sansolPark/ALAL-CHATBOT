@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const icon = document.createElement('img');
             icon.src = 'images/chaticon.png';
-            icon.alt = '소리 아이콘';
+            icon.alt = '앨런 아이콘';
             icon.classList.add('bot-icon');
             
             const textContainer = document.createElement('div');
@@ -92,6 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 초기 환영 메시지
     setTimeout(() => {
-        addMessage('혼저옵서! 나 소리우다. 무사 궁금한 거 있수과?', 'bot');
+        addMessage('혼저옵서! 나 앨런이우다. 무사 궁금한 거 있수과?', 'bot');
     }, 300);
 });
